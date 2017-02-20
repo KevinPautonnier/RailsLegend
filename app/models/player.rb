@@ -1,5 +1,7 @@
 require 'rest-client'
 require 'json'
+require "./api"
+
 class Player
 
   attr_accessor :name, :region, :key
@@ -9,21 +11,11 @@ class Player
     @name = name.downcase!
     @region = region.downcase!
 
-    response = RestClient.get "https://#{region}.api.pvp.net/api/lol/#{region}/v1.4/summoner/by-name/#{name}?api_key=#{key}"
-
-    player_data = JSON.parse response
-
-    print player_data
-
+    player_data = get_player(region, name)
     player_id = player_data["#{name}"]["id"]
-
     print player_id
 
-    responsefinal = RestClient.get "https://#{region}.api.pvp.net/api/lol/#{region}/v2.2/matchlist/by-summoner/#{player_id}?api_key=#{key}"
-
-    print responsefinal
-
-
+    print get_historic(region, player_id)
 
 
     #id = response.print
