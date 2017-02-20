@@ -1,9 +1,14 @@
 class Champion
 
-  def initialize(champ_id)
-    @champ_id = champ_id
+  attr_accessor :champion_id, :@region, :name, :title
 
+  def initialize(champion_id, region)
+    @champ_id = champion_id
+    @region = region
 
-    @name
+    champion_data = get_champion(region, id)
+
+    @name = champion_data["name"]
+    @title = champion_data["title"]
   end
 end
