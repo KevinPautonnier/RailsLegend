@@ -1,4 +1,5 @@
 require 'rest-client'
+require 'json'
 class Player
 
   attr_accessor :name, :region, :key
@@ -9,8 +10,12 @@ class Player
     @region = region
 
     response = RestClient.get "https://#{region}.api.pvp.net/api/lol/#{region}/v1.4/summoner/by-name/#{name}?api_key=#{key}"
-    print response.class
-    
+
+    response2 = JSON.parse response
+
+
+    print response2["matratio"]["id"]
+
 
 
 
