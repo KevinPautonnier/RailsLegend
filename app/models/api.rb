@@ -1,7 +1,7 @@
 @key = "RGAPI-d18e1abd-4e19-4453-8249-e10675de1031"
 
-def get_champion
-  response = RestClient.get "https://#{region}.api.pvp.net/api/lol/#{region}/v1.4/summoner/by-name/#{name}?api_key=#{key}"
+def get_champion(region, id)
+  response = RestClient.get "https://#{region}./api/lol/static-data/#{region}/v1.2/ch+ampion/#{id}?locale=fr_FR&champData=all&api_key=#{key}"
   JSON.parse response
 end
 
