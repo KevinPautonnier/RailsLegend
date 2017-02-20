@@ -1,13 +1,10 @@
-require 'rest-client'
-require 'json'
 require "./api"
 
 class Player
 
-  attr_accessor :name, :region, :key
+  attr_accessor :name, :region
 
   def initialize(name, region)
-    @key = "RGAPI-d18e1abd-4e19-4453-8249-e10675de1031"
     @name = name.downcase!
     @region = region.downcase!
 
