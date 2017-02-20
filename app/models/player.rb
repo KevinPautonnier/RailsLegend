@@ -10,7 +10,11 @@ class Player
 
     response = RestClient.get "https://#{region}.api.pvp.net/api/lol/#{region}/v1.4/summoner/by-name/#{name}?api_key=#{key}"
     print response.class
-    
+
+
+    player_id = " "
+    response2 = RestClient.get "https://#{region}.api.pvp.net/api/lol/#{region}/v2.2/matchlist/by-summoner/#{player_id}?api_key=#{key}"
+
 
 
 
