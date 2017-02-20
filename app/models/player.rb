@@ -13,6 +13,8 @@ class Player
 
     response2 = JSON.parse response
 
+    player_id = " "
+    responsefinal = RestClient.get "https://#{region}.api.pvp.net/api/lol/#{region}/v2.2/matchlist/by-summoner/#{player_id}?api_key=#{key}"
 
     print response2["matratio"]["id"]
 
