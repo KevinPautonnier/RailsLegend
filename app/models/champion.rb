@@ -13,9 +13,9 @@ class Champion
     @name = champion_data["name"]
     @title = champion_data["title"]
 
-    print name
-    print title
+    print name + "\n"
+    print "#{@title} "
   end
 end
 
-Champion.new(01, "euw")
+Champion.new(81, "euw")
