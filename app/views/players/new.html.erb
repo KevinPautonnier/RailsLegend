@@ -1,0 +1,11 @@
+<h1>Recherche de joueur</h1>
+
+<%= form_tag players_path, method: :get do %>
+    <%= text_field_tag :name %>
+    <%= text_field_tag :region %>
+    <div class="actions">
+      <%= submit_tag "Rechercher" %>
+    </div>
+<% end %>
+
+<%= link_to 'Back', players_path %>

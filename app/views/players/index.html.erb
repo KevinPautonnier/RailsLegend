@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Informations de l'invocateur</h1>
+
+<table>
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td>ID du joueur : </td>
+        <td><%= player.id %></td>
+      </tr>
+      <tr>
+        <td>Pseudo du joueur : </td>
+        <td><%= player.name %></td>
+      </tr>
+      <tr>
+        <td>Region du joueur : </td>
+        <td><%= player.region %></td>
+      </tr>
+      <tr><td><%= player.nb_ranked %></td></tr>
+      <tr> <td>Historique :</td></tr>
+      <% player.historic.each do |historic| %>
+        <tr>
+          <% puts historic[6]['ID']%>
+          <td><%= link_to 'Détails partie', game_path(:region => player.region, :id => historic[6]['ID']) %></td>
+          <% historic.each do |data| %>
+            <td><%= data %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouvelle recherche', new_player_path %>
