@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Informations de l'invocateur</h1>
+
+<table>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <% game.each do |data| %>
+          <td>ID du joueur : </td>
+          <td><%= data %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouvelle recherche', new_player_path %>

@@ -1,10 +1,16 @@
-require "./api"
-
 class Game
-  attr_accessor :match_id, :region
+ attr_accessor :id, :region
+ attr_reader :data
 
-  def initialize(match_id, region)
-    @match_id = match_id.downcase!
-    @region = region.downcase!
-  end
+ def initialize(id, region)
+   @id = id
+   @region = region
+
+   @data = Api.get_game(@region, @id)
+
+ end
+
+ def self.search(id, region)
+  [Game.new(id, region)]
+ end
 end
