@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Informations de l'invocateur</h1>
+
+<table>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td> Victoire? : </td>
+        <td><%= game.data["participants"][0]["stats"]["winner"] %></td>
+      </tr>
+      <tr>
+        <td> ratio : </td>
+        <td><%= game.data["participants"][0]["stats"]["kills"] %></td>
+        <td><%= game.data["participants"][0]["stats"]["deaths"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouvelle recherche', new_player_path %>

@@ -5,9 +5,7 @@ class Game
  def initialize(id, region)
    @id = id
    @region = region
-
    @data = Api.get_game(@region, @id)
-
  end
 
  def self.search(id, region)

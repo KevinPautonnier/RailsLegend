@@ -3,12 +3,12 @@ class GamesController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @game = Game.search params[:region], params[:id]
   end
 
   # GET /players/1
   # GET /players/1.json
   def show
+    @games = Game.search params[:id], params[:region]
   end
 
   # GET /players/new
