@@ -4,7 +4,8 @@ class Player
   attr_reader :id, :data, :historic_data, :historic, :nb_ranked
 
   def initialize(name, region)
-    @name = name.downcase!
+    @name = name
+    name.downcase!
     @region = region
 
     @data = Api.get_player(region, name)

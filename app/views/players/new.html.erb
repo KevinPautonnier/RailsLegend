@@ -1,11 +1,19 @@
-<h1>Recherche de joueur</h1>
+<%= stylesheet_link_tag "style.css" %>
 
-<%= form_tag players_path, method: :get do %>
-    <%= text_field_tag :name %>
-    <%= text_field_tag :region %>
-    <div class="actions">
-      <%= submit_tag "Rechercher" %>
-    </div>
-<% end %>
+<div id="background"></div>
 
-<%= link_to 'Back', players_path %>
+<div class="flex-container">
+  <div class="container">
+    <h1>Recherche de joueur</h1>
+
+    <%= form_tag players_path, method: :get do %>
+        <%= text_field_tag :name %>
+        <%= select_tag :region, options_for_select(["RU","EUNE","OCE","TR","JP","KR","BR","NA","EUW","LAS"]) %>
+        <div class="actions">
+          <%= submit_tag "Rechercher" %>
+        </div>
+    <% end %>
+
+    <%= link_to 'Back', players_path %>
+  </div>
+</div>

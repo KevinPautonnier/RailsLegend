@@ -6,6 +6,7 @@ class Game
    @id = id
    @region = region
    @data = Api.get_game(@region, @id)
+   puts @data
  end
 
  def self.search(id, region)
