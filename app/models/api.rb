@@ -26,5 +26,10 @@ class Api
       response = RestClient.get "https://#{region}.api.pvp.net/api/lol/#{region}/v2.2/match/#{match_id}?api_key=#{$key}"
       JSON.parse response
     end
+
+    def get_static_champ_data
+      response = RestClient.get "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/fr_FR/champion.json"
+      JSON.parse response
+    end
   end
 end

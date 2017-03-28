@@ -22,7 +22,7 @@
       <% player.historic.each do |historic| %>
         <tr>
           <% puts historic[6]['ID']%>
-          <td><%= link_to 'Détails partie', game_path(:region => player.region, :id => historic[6]['ID']) %></td>
+          <td><%= link_to 'Détails partie', game_path(:region => player.region, :id => historic[7]['MatchID']) %></td>
           <% historic.each do |data| %>
             <td><%= data %></td>
           <% end %>

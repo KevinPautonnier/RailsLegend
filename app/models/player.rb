@@ -26,8 +26,10 @@ class Player
       game_data.push("Saison" => data["season"])
       game_data.push("Date" => Time.at(data["timestamp"]/1000))
       game_data.push("Voie" => data["lane"])
+      game_data.push("ChampionID" => data["champion"])
       game_data.push("Rôle" => data["role"])
-      game_data.push("ID" => data["matchId"])
+      game_data.push("MatchID" => data["matchId"])
+      game_data.push("image" => findChamp(data["champion"]))
 
       @historic.push(game_data)
     end
@@ -43,4 +45,14 @@ class Player
     [Player.new(name, region)]
   end
 
+  def findChamp(id)
+    data = Api.get_static_champ_data
+
+    data["data"].each do |champ|
+      if champ[1]["key"] == id
+        champName = champ[1]["id"]
+        return champName
+      end
+    end
+  end
 end
