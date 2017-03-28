@@ -4,7 +4,7 @@ body{
 h1{
     font-size: 44px;
     color: white;
-    filter: drop-shadow(2px 2px 5px)
+    filter: drop-shadow(2px 2px 5px black)
 }
 
 .flex-container{
