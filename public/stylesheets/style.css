@@ -1,16 +1,22 @@
+body{
+    margin: 0;
+}
+h1{
+    font-size: 44px;
+    color: white;
+    filter: drop-shadow(2px 2px 5px)
+}
+
 .flex-container{
     height: 100vh;
     display: flex;
     align-items: center;
-
 }
 
 .container{
     display: inline-block;
     text-align: center;
     margin: auto;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.5);
 }
 
 #background{
@@ -24,4 +30,33 @@
 }
 
 form{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px 20px 10px 20px;
+}
+
+.actions{
+    display: inline-block;
+}
+
+input[type=text], select {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    background-color: dodgerblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: cornflowerblue;
 }

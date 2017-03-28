@@ -8,12 +8,11 @@
 
     <%= form_tag players_path, method: :get do %>
         <%= text_field_tag :name %>
-        <%= select_tag :region, options_for_select(["RU","EUNE","OCE","TR","JP","KR","BR","NA","EUW","LAS"]) %>
+        <%= select_tag :region, options_for_select(["EUW","RU","EUNE","OCE","TR","JP","KR","BR","NA","LAS"]) %>
         <div class="actions">
           <%= submit_tag "Rechercher" %>
         </div>
     <% end %>
 
-    <%= link_to 'Back', players_path %>
   </div>
 </div>
