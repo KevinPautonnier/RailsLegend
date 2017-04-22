@@ -1,0 +1,14 @@
+.team1{
+    float: left;
+    display: flex;
+    align-content: center;
+    flex-flow: column;
+    width: 50%;
+}
+.team2{
+    float: right;
+    display: flex;
+    align-content: center;
+    flex-flow: column;
+    width: 50%;
+}

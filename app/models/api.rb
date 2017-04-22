@@ -31,5 +31,15 @@ class Api
       response = RestClient.get "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/fr_FR/champion.json"
       JSON.parse response
     end
+
+    def find_champ(id)
+      data = Api.get_static_champ_data
+
+      data["data"].each do |champ|
+        if champ[1]["key"] == id.to_s
+          return champ[1]["id"]
+        end
+      end
+    end
   end
 end

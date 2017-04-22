@@ -20,39 +20,26 @@ class Player
 
     @historic_data["matches"].each do |data|
       @nb_ranked += 1
+      champ_name = Api.find_champ(data["champion"])
       game_data = Array.new
-      game_data.push("Région" => data["region"])
+      game_data.push("Region" => data["region"])
       game_data.push("Queue" => data["queue"])
-      game_data.push("Saison" => data["season"])
+      game_data.push("Season" => data["season"])
       game_data.push("Date" => Time.at(data["timestamp"]/1000))
-      game_data.push("Voie" => data["lane"])
+      game_data.push("Lane" => data["lane"])
       game_data.push("ChampionID" => data["champion"])
-      game_data.push("Rôle" => data["role"])
+      game_data.push("Role" => data["role"])
       game_data.push("MatchID" => data["matchId"])
-      game_data.push("image" => findChamp(data["champion"]))
+      game_data.push("ChampName" => champ_name)
+      game_data.push("Image" => "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/#{champ_name}_0.jpg")
 
       @historic.push(game_data)
     end
-
-    #id = response.print
-    #@profil_icon_id
-    #@level
-    #@best_champions
-
   end
 
   def self.search(name, region)
     [Player.new(name, region)]
   end
 
-  def findChamp(id)
-    data = Api.get_static_champ_data
 
-    data["data"].each do |champ|
-      if champ[1]["key"] == id
-        champName = champ[1]["id"]
-        return champName
-      end
-    end
-  end
 end

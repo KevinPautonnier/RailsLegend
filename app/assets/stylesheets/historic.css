@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+    background-color: whitesmoke;
+}
+.champion_container{
+    height: 200px;
+    width: 400px;
+    margin: 20px;
+    background-color: #CCCCCC;
+    border-radius: 0px 50px 50px 0px;
+    transform: translateX(0px);
+    animation-name: champion_container_animation;
+    animation-duration: 0.7s;
+    filter : drop-shadow(8px 8px 10px black);
+    margin-bottom: 100px;
+    margin-top: 100px;
+    background-color: black;
+    color: whitesmoke;
+}
+.champion_container>img{
+    height: 200px;
+    float: left;
+    animation-name: end_champion_image_animation;
+    animation-duration: 0.7s;
+}
+.champion_container>p:last-child{
+    position: relative;
+    top: -40%;
+}
+.summoner{
+    position: fixed;
+    width: 100%;
+    background-color: #730E15;
+    color: #F7F7F7;
+    top: 0;
+    z-index: 1;
+    filter: drop-shadow(8px 14px 10px black);
+}
+.onViewport{
+    height: 400px;
+    width: 800px;
+    z-index: -2;
+    transform: translateX(100px);
+    animation-name: onViewport_animation;
+    animation-duration: 0.7s;
+    font-size: 1.25em;
+}
+.onViewport>img+p{
+    font-size: 4em;
+}
+.onViewport>img{
+    height: 400px;
+    float: left;
+    animation-name: start_champion_image_animation;
+    animation-duration: 0.7s;
+    margin-right: 40px;
+}
+
+@keyframes onViewport_animation {
+    from {
+        transform: translateX(0px);
+        width: 400px;
+        height: 200px;}
+    to {
+        transform: translateX(100px);
+        width: 800px;
+        height: 400px;}
+}
+
+@keyframes champion_container_animation {
+    from {
+        transform: translateX(100px);
+        width: 800px;
+        height: 400px;}
+    to {
+        transform: translateX(0px);
+        width: 400px;
+        height: 200px;}
+}
+
+.summoner + .champion_container{
+    margin-top: 200px;
+}
+@keyframes start_champion_image_animation {
+    from {height: 200px;}
+    to {height: 400px}
+}
+@keyframes end_champion_image_animation {
+    from {height: 400px;}
+    to {height: 200px}
+}
+
+.onViewport>p>a{
+    float: right;
+    width: 60px;
+    height: 60px;
+    transform: translateX(-40px) rotate(45deg);
+    border-top: 5px solid white;
+    border-right: 5px solid white;
+}

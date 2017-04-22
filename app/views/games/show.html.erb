@@ -2,21 +2,41 @@
 
 <h1>Informations de l'invocateur</h1>
 
-<table>
-  <tbody>
+
+
     <% @games.each do |game| %>
-      <tr>
-        <td> Victoire? : </td>
-        <td><%= game.data["participants"][0]["stats"]["winner"] %></td>
-      </tr>
-      <tr>
-        <td> ratio : </td>
-        <td><%= game.data["participants"][0]["stats"]["kills"] %></td>
-        <td><%= game.data["participants"][0]["stats"]["deaths"] %></td>
-      </tr>
+    <div class="team1">
+    <% game.data["participants"].each do |participant|%>
+        <% if (participant["participantId"] == 1 and participant["teamId"] == 100 and participant["stats"]["winner"])%>
+              <p>WINNER</p>
+        <% elsif participant["participantId"] == 1 %>
+              <p>LOOSER</p>
+        <% end %>
+        <% if participant["teamId"] == 100%>
+              <p><%= participant["championId"] %></p>
+              <p><%= participant["spell1Id"] %></p>
+              <p><%= participant["spell2Id"] %></p>
+              <p><%= participant["stats"]["kills"] %> / <%= participant["stats"]["deaths"] %></p>
+        <% end %>
     <% end %>
-  </tbody>
-</table>
+    </div>
+    <div class="team2">
+
+    <% game.data["participants"].each do |participant|%>
+          <% if (participant["participantId"] == 6 and participant["teamId"] == 200 and participant["stats"]["winner"])%>
+              <p>WINNER</p>
+          <% elsif participant["participantId"] == 6 %>
+              <p>LOOSER</p>
+          <% end %>
+        <% if participant["teamId"] == 200%>
+              <p><%= participant["championId"] %></p>
+              <p><%= participant["spell1Id"] %></p>
+              <p><%= participant["spell2Id"] %></p>
+              <p><%= participant["stats"]["kills"] %> / <%= participant["stats"]["deaths"] %></p>
+        <% end %>
+    <% end %>
+    </div>
+    <% end %>
 
 <br>
 
